@@ -1,0 +1,52 @@
+<style>
+  .scroll-bar {
+    background: #ffcc16;
+    overflow: hidden;
+    width: 100%;
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+    padding: 8px 0;
+
+    /* Control speed here → bigger number = slower */
+    --speed: 28s;
+  }
+
+  .scroll-track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: scroll-left var(--speed) linear infinite;
+    gap: 80px;
+  }
+
+  .scroll-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .scroll-item span {
+    display: inline-block;
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+<div class="scroll-bar">
+  <div class="scroll-track">
+    {% for i in (1..8) %}
+      <div class="scroll-item">
+        <span>🚚✨</span>
+        <span>Free Shipping on Orders Above ₹1,000!</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
